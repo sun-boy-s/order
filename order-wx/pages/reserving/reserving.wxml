@@ -1,0 +1,49 @@
+<wxs src="reserving.wxs" module="tools" />
+<view class="container">
+  <view class="page-body">
+    <view class="cu-bar bg-gradual-blue">
+      <!-- <view class="action" bindtap="backPage">
+        <text class="cuIcon-back text-gray"></text>返回 
+      </view> -->
+      <view class="content text-bold">
+        正在预约
+      </view>
+    </view>
+    <view class="select-option">
+      <view class="{{['cu-list menu',menuBorder?'sm-border':'','card-menu margin-top']}}" wx:for="{{orders}}" wx:key="*this">
+        <view class="{{['cu-item','arrow']}}" bind:tap="onTap" data-index="{{index}}">
+          <view class="pan" wx:if="{{item.dateTime>date}}">
+            <view class="content">
+              <text class="text-grey">座位号 {{item.seatId+" "+item.times}}</text>
+            </view>
+          </view>
+          <view class="pan" wx:if="{{item.dateTime==date&&tools.check(item.times,time)==1}}">
+            <view class="content">
+              <text class="text-grey">座位号 {{item.seatId+" "+item.times}}</text>
+              <text class="warning">即将开始签到</text>
+            </view>
+          </view>
+          <view class="pan" wx:if="{{item.dateTime==date&&tools.check(item.times,time)==2}}">
+            <view class="content">
+              <text class="text-grey">座位号 {{item.seatId+" "+item.times}}</text>
+              <text class="warning">正在开始签到</text>
+            </view>
+          </view>
+          <view  class="pan" wx:if="{{item.dateTime==date&&tools.check(item.times,time)==3}}">
+            <view class="content">
+              <text class="text-grey">座位号 {{item.seatId+" "+item.times}}</text>
+              <text class="warning">即将结束签到</text>
+            </view>
+          </view>
+          <view wx:if="{{item.dateTime==date&&tools.check(item.times,time)==4}}">
+            <view class="content">
+              <text class="text-grey">座位号 {{item.seatId+" "+item.times}}</text>
+              <text class="warning">正在结束签到</text>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

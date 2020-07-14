@@ -1,0 +1,27 @@
+/* pages/intelligent /intelligent.wxss */
+page{
+  background: white;
+}
+.body{
+  width: 100%;
+  height: 100%;
+}
+.signal{
+  width: 100%;
+  height: 300rpx;
+  /* background: #FF80C0; */
+}
+.action{
+  margin: 0px auto;
+}
+.item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 220rpx;
+}
+.commit{
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}

@@ -1,0 +1,128 @@
+<view class="container">
+  <view class="body">
+
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text> 你喜欢的座位
+      </view>
+    </view>
+    <view class="grid col-3 bg-white padding-sm">
+      <view class="padding-sm">
+        <view class="padding radius text-center light bg-red item">
+          <view class="action" bindtap="showModalMagor">
+            <text class="cuIcon-title text-orange"></text>{{majorName}}
+          </view>
+        </view>
+      </view>
+      <view class="padding-sm">
+        <view class="padding radius text-center light bg-orange">
+          <view class="action" bindtap="showModalAir">
+            <text class="cuIcon-title text-orange"></text>{{airName}}
+          </view>
+        </view>
+      </view>
+      <view class="padding-sm">
+        <view class="padding radius text-center light bg-yellow">
+          <view class="action" bindtap="showModalWindow">
+            <text class="cuIcon-title text-orange"></text>{{windowName}}
+          </view>
+        </view>
+      </view>
+      <view class="padding-sm">
+        <view class="padding radius text-center light bg-blue item">
+          <view class="action" bindtap="showModalType">
+            <text class="cuIcon-title text-orange"></text>{{typeName}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text>精选座位
+      </view>
+    </view>
+    <view class="page-section-spacing">
+      <scroll-view scroll-y="true" style="height: 390rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view class="grid col-3 padding-sm">
+          <view class="padding-sm" wx:for="{{list}}" wx:key="index">
+            <view class="bg-cyan padding radius text-center shadow-blur item" bindtap="selectTo" data-seatid="{{item.seatId}}">
+              <view class="text-lg">{{item.seatId}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 专业选择区 -->
+    <view data-event-opts="{{[['tap',[['hideModal',['$event']]]]]}}" class="{{['cu-modal',magorModalName=='magorModalName'?'show':'']}}" bindtap="cancelMagor" id="magorModalName">
+      <view data-event-opts="{{[['tap',[['',['$event']]]]]}}" class="cu-dialog">
+        <radio-group data-event-opts="{{[['change',[['RadioChange',['$event']]]]]}}" class="block" bindchange="changeItemMajor">
+          <view class="cu-list menu text-left">
+            <block wx:for="{{radio_major}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+              <view class="cu-item">
+                <label class="flex justify-between align-center flex-sub" bindtap="changeNameMagor" id="{{item.name}}" data-type="{{item.type}}">
+                  <view class="flex-sub">{{item.name}}</view>
+                  <radio class="{{['round',radio=='radio'+index?'checked':'']}}" checked="{{radio=='radio'+index?true:false}}" value="{{'radio'+index}}"></radio>
+                </label>
+              </view>
+            </block>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <!-- 空调选择区 -->
+    <view data-event-opts="{{[['tap',[['hideModal',['$event']]]]]}}" class="{{['cu-modal',airModalName=='airModalName'?'show':'']}}" bindtap="cancelAir" id="airModelName">
+      <view data-event-opts="{{[['tap',[['',['$event']]]]]}}" class="cu-dialog">
+        <radio-group data-event-opts="{{[['change',[['RadioChange',['$event']]]]]}}" class="block" bindchange="changeItemAir">
+          <view class="cu-list menu text-left">
+            <block wx:for="{{radio_air}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+              <view class="cu-item">
+                <label class="flex justify-between align-center flex-sub" bindtap="changeNameAir" id="{{item.name}}" data-type="{{item.type}}">
+                  <view class="flex-sub">{{item.name}}</view>
+                  <radio class="{{['round',radio=='radio'+index?'checked':'']}}" checked="{{radio=='radio'+index?true:false}}" value="{{'radio'+index}}"></radio>
+                </label>
+              </view>
+            </block>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <!-- 窗户选择区 -->
+    <view data-event-opts="{{[['tap',[['hideModal',['$event']]]]]}}" class="{{['cu-modal',windowModalName=='windowModalName'?'show':'']}}" bindtap="cancelWindow" id="windowModelName">
+      <view data-event-opts="{{[['tap',[['',['$event']]]]]}}" class="cu-dialog">
+        <radio-group data-event-opts="{{[['change',[['RadioChange',['$event']]]]]}}" class="block" bindchange="changeItemWindow">
+          <view class="cu-list menu text-left">
+            <block wx:for="{{radio_window}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+              <view class="cu-item">
+                <label class="flex justify-between align-center flex-sub" bindtap="changeNameWindow" id="{{item.name}}" data-type="{{item.type}}">
+                  <view class="flex-sub">{{item.name}}</view>
+                  <radio class="{{['round',radio=='radio'+index?'checked':'']}}" checked="{{radio=='radio'+index?true:false}}" value="{{'radio'+index}}"></radio>
+                </label>
+              </view>
+            </block>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <!-- 类型选择区 -->
+    <view data-event-opts="{{[['tap',[['hideModal',['$event']]]]]}}" class="{{['cu-modal',typeModalName=='typeModalName'?'show':'']}}" bindtap="cancelType" id="typeModelName">
+      <view data-event-opts="{{[['tap',[['',['$event']]]]]}}" class="cu-dialog">
+        <radio-group data-event-opts="{{[['change',[['RadioChange',['$event']]]]]}}" class="block" bindchange="changeItemType">
+          <view class="cu-list menu text-left">
+            <block wx:for="{{radio_type}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+              <view class="cu-item">
+                <label class="flex justify-between align-center flex-sub" bindtap="changeNameType" id="{{item.name}}" data-type="{{item.type}}">
+                  <view class="flex-sub">{{item.name}}</view>
+                  <radio class="{{['round',radio=='radio'+index?'checked':'']}}" checked="{{radio=='radio'+index?true:false}}" value="{{'radio'+index}}"></radio>
+                </label>
+              </view>
+            </block>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+  <view class="commit">
+    <button class="bt" bindtap="telligent">智能搜索</button>
+  </view>
+</view>

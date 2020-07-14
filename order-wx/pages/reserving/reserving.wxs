@@ -1,0 +1,54 @@
+/**
+ * 参数1: 要截取的字符串
+ * 参数2: 开始截取的index
+ * 参数3: 结束截取的index
+ */
+var check = function (time,newTime) {
+
+  if (time == undefined || time == '' || time == null) {
+    return;
+  }
+  if (newTime == undefined || newTime == '' || newTime == null) {
+    return;
+  }
+  var begin = time.charAt(0);
+  var end = time.charAt(6);
+  var beginHouse;//入馆前五分钟
+  var beginHouserOver=time.substring(0,5);//入馆签到结束
+  var endHouse;//离馆前五分钟
+  var endHouseOve=time.substring(6);//离馆签到结束
+  //开始时间
+  if(begin=="0"){
+    beginHouse = parseInt(time.charAt(1))-1; 
+  }else{
+    beginHouse = parseInt(time.substring(0,2))-1;
+  }
+  beginHouse += "";
+  if (beginHouse.length == 1) {
+    beginHouse = "0" + beginHouse;
+  }
+  beginHouse = beginHouse + ":55";
+  //结束时间
+  if (end == "0") {
+    endHouse = parseInt(time.charAt(7)) - 1;
+  } else {
+    endHouse = parseInt(time.substring(6, 8)) - 1;
+  }
+  endHouse += "";
+  if (endHouse.length == 1) {
+    endHouse = "0" + endHouse;
+  }
+  endHouse = endHouse + ":55";
+  if(newTime<=beginHouse){
+    return 1;//即将开始入馆签到
+  }else if(newTime>=beginHouse&&newTime<=beginHouserOver){
+    return 2;//开始入馆签到
+  }else if(newTime>=beginHouserOver&&newTime<=endHouse){
+    return 3;//即将离馆签到
+  }else if(newTime>=endHouse&&newTime<=endHouseOve){
+    return 4;//开始离馆签到
+  }else{
+    return 0;
+  }
+}
+module.exports.check = check;

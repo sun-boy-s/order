@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.SeatMapper">
+    <resultMap id="SeatResultMap" type="Seat">
+        <id property="seatId" column="seat_id" />
+        <result property="floor" column="floor" />
+        <result property="type" column="type" />
+        <result property="major" column="major" />
+        <result property="win" column="win" />
+        <result property="condit" column="condit" />
+        <result property="ordering" column="ordering" />
+        <result property="libId" column="lib_id" />
+    </resultMap>
+    <select id="getSeatId" parameterType="int" resultType="map">
+        select seat_id,ordering
+        from ordering_system.seat
+        where floor=#{floor}
+    </select>
+    <select id="getSeatById" parameterType="String" resultType="Seat" resultMap="SeatResultMap">
+        select * from ordering_system.seat where seat_id=#{seatId}
+    </select>
+    <select id="findById" resultMap="SeatResultMap">
+        select *
+        from seat
+        where seat_id = #{seatId}
+    </select>
+    <select id="findSeatList" parameterType="int" resultMap="SeatResultMap">
+        select *
+        from ordering_system.seat
+        where 1=1
+        <if test="type!=0">
+            and type=#{type}
+        </if>
+        <if test="major!=0">
+            and major=#{major}
+        </if>
+        <if test="window!=0">
+            and win=#{window}
+        </if>
+        <if test="condition!=0">
+            and condit=#{condition}
+        </if>
+    </select>
+</mapper>

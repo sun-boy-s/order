@@ -1,0 +1,232 @@
+<!--pages/floor/floor1/floor1.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class="map">
+      <movable-area class="moveArea" scale-area>
+        <!-- bindchange="onChange" 
+                                       bindscale="onScale"  -->
+        <movable-view class="moveView" direction="all" scale scale-min="2" scale-max="10" scale-value="4" x="{{x}}" y="{{y}}">
+          <view class="left-part">
+            <view class="left">
+              <view class="arrayOne">
+                <view wx:for="{{seatIdList.arrayOne}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-left.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-left-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+              <view class="arrayTwo">
+                <view wx:for="{{seatIdList.arrayTwo}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-right.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-right-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="middle">
+
+            </view>
+            <view class="right">
+              <view class="arrayThree">
+                <view wx:for="{{seatIdList.arrayThree}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-left.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-left-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+              <view class="arrayFour">
+                <view wx:for="{{seatIdList.arrayFour}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-right.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-right-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="middle-part">
+            <view class="top">
+              <view class="arrayNine">
+                <view wx:for="{{seatIdList.arrayNine}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-top.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-top-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+              <view class="arrayTen">
+                <view wx:for="{{seatIdList.arrayTen}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-bottom.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-bottom-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+              <view class="arrayEleven">
+                <view wx:for="{{seatIdList.arrayEleven}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-top.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-top-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+              <view class="arrayTwelve">
+                <view wx:for="{{seatIdList.arrayTwelve}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-bottom.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-bottom-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="middle-blank"></view>
+            <view class="bottom">
+              <view class="left">
+                <view class="arrayThirt">
+                  <view wx:for="{{seatIdList.arrayThirt}}" wx:key='key' wx:for-item='item' class="img">
+                    <view wx:if="{{item.ordering==0}}" class="img-if">
+                      <image src="../../../utils/images/seat-left.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                    </view>
+                    <view wx:else class="img-if">
+                      <image src="../../../utils/images/seat-left-select.png" id="{{item.seat_id}}"></image>
+                    </view>
+                  </view>
+                </view>
+                <view class="arrayFourt">
+                  <view wx:for="{{seatIdList.arrayFourt}}" wx:key='key' wx:for-item='item' class="img">
+                    <view wx:if="{{item.ordering==0}}" class="img-if">
+                      <image src="../../../utils/images/seat-right.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                    </view>
+                    <view wx:else class="img-if">
+                      <image src="../../../utils/images/seat-right-select.png" id="{{item.seat_id}}"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="right">
+                <view class="arrayFifteen">
+                  <view wx:for="{{seatIdList.arrayFifteen}}" wx:key='key' wx:for-item='item' class="img">
+                    <view wx:if="{{item.ordering==0}}" class="img-if">
+                      <image src="../../../utils/images/seat-right.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                    </view>
+                    <view wx:else class="img-if">
+                      <image src="../../../utils/images/seat-right-select.png" id="{{item.seat_id}}"></image>
+                    </view>
+                  </view>
+                </view>
+                <view class="arraySixteen">
+                  <view wx:for="{{seatIdList.arraySixteen}}" wx:key='key' wx:for-item='item' class="img">
+                    <view wx:if="{{item.ordering==0}}" class="img-if">
+                      <image src="../../../utils/images/seat-right.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                    </view>
+                    <view wx:else class="img-if">
+                      <image src="../../../utils/images/seat-right-select.png" id="{{item.seat_id}}"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="right-part">
+
+            <view class="left">
+              <view class="arrayOne">
+                <view wx:for="{{seatIdList.arrayFive}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-left.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-left-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+              <view class="arrayTwo">
+                <view wx:for="{{seatIdList.arraySix}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-right.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-right-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="middle">
+            </view>
+            <view class="right">
+              <view class="arrayThree">
+                <view wx:for="{{seatIdList.arraySeven}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-left.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-left-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+              <view class="arrayFour">
+                <view wx:for="{{seatIdList.arrayEight}}" wx:key='key' wx:for-item='item' class="img">
+                  <view wx:if="{{item.ordering==0}}" class="img-if">
+                    <image src="../../../utils/images/seat-right.png" bindtap="imgClick" id="{{item.seat_id}}"></image>
+                  </view>
+                  <view wx:else class="img-if">
+                    <image src="../../../utils/images/seat-right-select.png" id="{{item.seat_id}}"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+          </view>
+
+
+        </movable-view>
+      </movable-area>
+    </view>
+    <view class="hover-card">
+      <form bindsubmit="formSubmit" class="form" hidden="{{isHidden}}">
+        <view class="cu-form-group">
+          <view class="title">座位号</view>
+          <input name="seatId" value="{{list.seatId}}" />
+        </view>
+        <view class="cu-form-group">
+          <view class="title">学号</view>
+          <input disabled="true" value="{{user.numId}}" />
+        </view>
+        <view class="cu-form-group">
+          <view class="title">姓名</view>
+          <input disabled="true" value="{{user.realName}}" />
+        </view>
+        <view class="cu-form-group">
+          <view class=" title ">日期</view>
+          <input disabled="true" value="{{list.date}}" />
+        </view>
+        <view class="cu-form-group">
+          <view class="titlecard">时间段</view>
+          <input disabled="true" value="{{list.time}}" />
+        </view>
+        <view class="cu-form-group sub">
+          <button formType="submit" class="cu-btn bg-grey lg center">确认提交</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

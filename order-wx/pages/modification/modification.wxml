@@ -1,0 +1,37 @@
+<!--pages/modification/modification.wxml-->
+<view class="box  ">
+  <view class="cu-bar bg-gradual-blue">
+    <!-- <view class="action" bindtap="backPage">
+      <text class="cuIcon-back text-gray"></text>返回 
+    </view> -->
+    <view class="content text-bold">
+     修改信息
+    </view>
+  </view>
+</view>
+<form bindsubmit='modifySubmit' >
+  <view class="cu-form-group">
+		<view class="title">学号：</view>
+		<input placeholder="17201340" name="userId" value="{{userId}}"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">姓名：</view>
+		<input placeholder="张三" name="userName" value="{{userName}}"></input>
+	</view>
+ <view class="cu-form-group">
+		<view class="title" name="userPhone">手机号码：</view>
+		<input placeholder="18407857605" name="userPhone" value="{{userPhone}}"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg" formType="submit" type='primary'>确定</button>
+  </view>
+</form>
+  

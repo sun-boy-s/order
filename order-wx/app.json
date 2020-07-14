@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/self/self",
+    "pages/identify/identify",
+    "pages/aboutUs/aboutUs",
+    "pages/modification/modification",
+    "pages/library/library",
+    "pages/floor/floor1/floor1",
+    "pages/floor/floor2/floor2",
+    "pages/floor/floor3/floor3",
+    "pages/floor/floor4/floor4",
+    "pages/floor/floor5/floor5",
+    "pages/search/search",
+    "pages/reserved/reserved",
+    "pages/reserveorder/reserveorder",
+    "pages/reserving/reserving",
+    "pages/mapsign/mapsign",
+    "pages/intelligent/intelligent",
+    "pages/leakage/leakage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "南昌航空大学",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "utils/images/index.png",
+        "selectedIconPath": "utils/images/index-select.png"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "text": "个人",
+        "iconPath": "utils/images/self.png",
+        "selectedIconPath": "utils/images/self-select.png"
+      }
+    ]
+  }
+}

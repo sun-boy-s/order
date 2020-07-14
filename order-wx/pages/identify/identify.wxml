@@ -1,0 +1,31 @@
+<!--pages/identify/identify.wxml-->
+<view class="container">
+  <toast hidden="{{hiddenToast}}" duration="2000" bindchange="toastHidden">{{toastMessage}}</toast>
+  <view>
+    <form bindsubmit="formSubmit">
+      <view class="cu-form-group margin-top">
+        <view class="title">学生学号</view>
+        <input placeholder='例如"17201316"' name="numId" />
+      </view>
+      <view class="cu-form-group">
+        <view class="title">学生姓名</view>
+        <input placeholder='例如"张三"' name="realName" />
+      </view>
+      <view class="cu-form-group">
+        <view class="title">手机号码</view>
+        <input placeholder='例如"151****6814"' name="teleNumber" />
+        <view class="cu-capsule radius">
+          <view class="cu-tag bg-blue ">+86</view>
+          <view class="cu-tag line-blue">中国大陆</view>
+        </view>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">认证码</view>
+        <input placeholder='例如"Nchu2020"' name="inviteCode" />
+      </view>
+      <view class="cu-form-group">
+        <button formType="submit" class="cu-btn bg-grey lg center">确认提交</button>
+      </view>
+    </form>
+  </view>
+</view>

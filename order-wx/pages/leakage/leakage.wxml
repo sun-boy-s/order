@@ -1,0 +1,66 @@
+<!--pages/leakage/leakage.wxml-->
+<view class="container">
+  <view class="body">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text> 选择时间
+      </view>
+    </view>
+    <view class="padding-sm">
+      <view class="padding radius text-center light bg-red item">
+        <view class="action" bindtap="showModalTime">
+          <text class="cuIcon-title text-orange"></text>{{timeName}}
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text> 选择楼层
+      </view>
+    </view>
+    <view class="padding-sm">
+      <view class="padding radius text-center light bg-red item">
+        <view class="action" bindtap="showModalFloors">
+          <text class="cuIcon-title text-orange"></text>{{floorsName}}
+        </view>
+      </view>
+    </view>
+    <view class="commit">
+      <button class="bt" bindtap="spreedSearch">快速查找</button>
+    </view>
+    <!-- 时间段 -->
+    <view data-event-opts="{{[['tap',[['hideModal',['$event']]]]]}}" class="{{['cu-modal',timeModalName=='timeModalName'?'show':'']}}" bindtap="cancelTime" id="timeModalName">
+      <view data-event-opts="{{[['tap',[['',['$event']]]]]}}" class="cu-dialog">
+        <radio-group data-event-opts="{{[['change',[['RadioChange',['$event']]]]]}}" class="block" bindchange="changeItemTime">
+          <view class="cu-list menu text-left">
+            <block wx:for="{{time}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+              <view class="cu-item">
+                <label class="flex justify-between align-center flex-sub" bindtap="changeNameTime" id="{{item}}" data-type="{{item}}">
+                  <view class="flex-sub">{{item}}</view>
+                  <radio class="{{['round',radio=='radio'+index?'checked':'']}}" checked="{{radio=='radio'+index?true:false}}" value="{{'radio'+index}}"></radio>
+                </label>
+              </view>
+            </block>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <!-- 楼层 -->
+    <view data-event-opts="{{[['tap',[['hideModal',['$event']]]]]}}" class="{{['cu-modal',floorsModalName=='floorsModalName'?'show':'']}}" bindtap="cancelFloors" id="floorsModalName">
+      <view data-event-opts="{{[['tap',[['',['$event']]]]]}}" class="cu-dialog">
+        <radio-group data-event-opts="{{[['change',[['RadioChange',['$event']]]]]}}" class="block" bindchange="changeItemFloors">
+          <view class="cu-list menu text-left">
+            <block wx:for="{{floors}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+              <view class="cu-item">
+                <label class="flex justify-between align-center flex-sub" bindtap="changeNameFloors" id="{{item.name}}" data-type="{{item.type}}">
+                  <view class="flex-sub">{{item.name}}</view>
+                  <radio class="{{['round',radio=='radio'+index?'checked':'']}}" checked="{{radio=='radio'+index?true:false}}" value="{{'radio'+index}}"></radio>
+                </label>
+              </view>
+            </block>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+</view>

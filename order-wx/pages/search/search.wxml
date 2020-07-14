@@ -1,0 +1,69 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <view class="body">
+    <view class="massage">
+      <view class="title">
+        <text>座位信息</text>
+      </view>
+      <view class="show">
+        <text>座位编号</text>
+        <input disabled="true" value="{{seat.seatId}}"></input>
+      </view>
+      <view class="show">
+        <text>座位类型</text>
+        <input disabled="true" value="{{seatType}}"></input>
+      </view>
+      <view class="show">
+        <text>座位楼层</text>
+        <input disabled="true" value="{{seat.floor}}"></input>
+      </view>
+    </view>
+    <view class="time">
+      <view class="title">
+        <text>可预约时段</text>
+      </view>
+      <view class="date" wx:for="{{dates}}" wx:for-item="date" wx:key="*this" wx:for-index="index">
+        <text class="warp">{{date}}</text>
+        <view class="item" wx:if="{{index==0}}">
+          <view class="period" wx:for="{{timeOne}}" wx:for-item="timeOne" wx:key="item" wx:for-index="in">
+
+              <view wx:if="{{timeOne.isOver==0}}">
+                <view class="content {{timeOne.oc?'oc2':'oc1'}}" bindtap="onClick" id="{{date+' '+timeOne.time}}">{{timeOne.time}}</view>
+              </view>
+              <view wx:else>
+                <view class="content">{{timeOne.time}}</view>
+              </view>
+
+          </view>
+        </view>
+        <view class="item" wx:elif="{{index==1}}">
+          <view class="period" wx:for="{{timeTwo}}" wx:for-item="timeTwo" wx:key="item" wx:for-index="ind">
+
+              <view wx:if="{{timeTwo.isOver==0}}">
+                <view class="content {{timeTwo.oc?'oc2':'oc1'}}" bindtap="onClick" id="{{date+' '+timeTwo.time}}">{{timeTwo.time}}</view>
+              </view>
+              <view wx:else>
+                <view class="content">{{timeTwo.time}}</view>
+              </view>
+
+          </view>
+        </view>
+        <view class="item" wx:else>
+          <view class="period" wx:for="{{timeThree}}" wx:for-item="timeThree" wx:key="item" wx:for-index="idx">
+
+              <view wx:if="{{timeThree.isOver==0}}">
+                <view class="content {{timeThree.oc?'oc2':'oc1'}}" bindtap="onClick" id="{{date+' '+timeThree.time}}">{{timeThree.time}}</view>
+              </view>
+              <view wx:else>
+                <view class="content">{{timeThree.time}}</view>
+              </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="reserve">
+      <button class="but" bindtap="reserving">预约</button>
+    </view>
+  </view>
+</view>

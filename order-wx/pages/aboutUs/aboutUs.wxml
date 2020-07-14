@@ -1,0 +1,22 @@
+<view class="box  ">
+  <view class="cu-bar bg-gradual-blue">
+    <!-- <view class="action" bindtap="backPage">
+      <text class="cuIcon-back text-gray"></text>返回 
+    </view> -->
+    <view class="content text-bold">
+     关于
+    </view>
+  </view>
+</view>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>图书馆座位预定小程序</view>
+  <view class='text-content'>
+    <view>Hi！欢迎使用使用图书馆座位预定小程序！</view>
+    <view class='margin-top-sm'>该项目是我们团队开发的一款图书馆座位预定小程序。这个项目为了解决图书座位占座问题。避免早上找找的去图书排队抢位置。</view>
+    <view class='margin-top-sm'>如果有在使用中有什么问题，可以告诉我们。我的团队会加班加点的解决这个问题。</view>
+    <view class='margin-top-sm'>٩(๑❛ᴗ❛๑)۶</view>
+    <view class='margin-top-sm'>联系方式：QQ: 1500335422 </view>  
+    <view class='margin-top-sm'>邮箱：1500335422@qq.com</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>

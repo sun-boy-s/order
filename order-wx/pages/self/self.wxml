@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="page-body">
+    <!-- <view class="self-meg">
+      <view class="img-part">
+        <image class="self-img" src="../../utils/images/self-img.jpg"></image>
+      </view>
+      <view class="meg-part">
+        <view class="name">self-discipine</view>
+        <view class="meg-part-block">
+          <view class="school">南昌航空大学</view>
+          <view class="school-id">17201316</view>
+        </view>
+      </view>
+    </view> -->
+
+    <view class="self-meg">
+      <view class="padding-sm">
+        <view class="bg-gradual-blue padding radius text-center shadow-blur">
+          <view class="img-part">
+          <!-- <view class='self-img' src="../../utils/images/self-img.jpg"></view> -->
+            <open-data type="userAvatarUrl"></open-data>
+          </view>
+        <view class="meg-part">
+          <open-data class="name" type="userNickName">self-discipine</open-data>
+            <view class="meg-part-block">
+              <view class="school">信誉点</view>
+              <view class="school-id">{{user.reputation}}</view>
+            </view>
+            <view class="meg-part-block">
+              <view class="school">{{school.name}}</view>
+              <view class="school-id">{{user.numId}}</view>
+            </view>
+          </view>
+        </view>
+      </view> 
+    </view>
+    <!-- 添加页面点击跳转事件 -->
+    <view class="select-option">
+      <view class="{{['cu-list menu',menuBorder?'sm-border':'','card-menu margin-top']}}">
+        <view class="{{['cu-item','arrow']}}" bindtap="reserving">
+          <view class="content">
+            <image class="png" src="../../utils/images/being-order.png" mode="aspectFit"></image>
+            <text class="text-grey">正在预约</text>
+          </view>
+        </view>
+        <view class="{{['cu-item','arrow']}}" bindtap="reserveorder">
+          <view class="content">
+            <image class="png" src="../../utils/images/have-order.png" mode="aspectFit"></image>
+            <text class="text-grey">已结束预约</text>
+          </view>
+        </view>
+        <view class="{{['cu-item','arrow']}}" bindtap="toModification">
+          <view class="content">
+            <image class="png" src="../../utils/images/self-updata.png" mode="aspectFit"></image>
+            <text class="text-grey">修改个人信息</text>
+          </view>
+        </view>
+        <view class="{{['cu-item','arrow']}}" bindtap="toAboutUs">
+          <view class="content">
+            <image class="png" src="../../utils/images/about-us.png" mode="aspectFit"></image>
+            <text class="text-grey">关于我们</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">{{toastMessage}}</toast>
+</view>

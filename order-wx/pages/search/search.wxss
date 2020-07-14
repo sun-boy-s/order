@@ -1,0 +1,71 @@
+/* pages/search/search.wxss */
+.body{
+  width: 100%;
+  height: 100%;
+}
+.reserve{
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+.massage{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-left: 90rpx;
+}
+.massage .title{
+  margin-top: 30rpx;
+}
+.massage .show{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-left: 80rpx;
+}
+.massage .show input{
+  margin-left: 30rpx;
+}
+.time{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-left: 90rpx;
+}
+.time .title{
+  margin-top: 30rpx;
+}
+.time .date{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 80%;
+  align-self: center;
+}
+/* .time .date .warp{
+ 
+} */
+.time .date .item{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-self: center;
+}
+.time .date .item .period{
+  display: flex;
+  width: 45%;
+  flex-direction: row;
+  border: 1rpx black solid;
+}
+.time .date .item .period .content{
+  width: 100%;
+  align-self: center;
+}
+.oc1{
+  background-color: red;
+}
+.oc2{
+  background-color: blue;
+}

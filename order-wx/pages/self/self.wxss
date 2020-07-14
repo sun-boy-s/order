@@ -1,0 +1,51 @@
+.page-body{
+  height: 100%;
+  width: 100%;
+}
+.self-meg{
+  display: flex;
+  /* height: 200rpx; */
+  width: 100%;
+  position: relative;
+  padding-top: 30rpx;
+  /* background-color: gainsboro; */
+}
+.padding-sm{
+  width: 100%;
+}
+.img-part{
+  width:150rpx;
+  height:150rpx;
+  border-radius: 50%;
+  border: 2px solid #FFFFFE;
+  overflow: hidden;
+  margin: 0px auto;
+}
+.meg-part{
+  display: flex;
+  flex-direction: column;
+}
+.meg-part .name{
+  margin: 0px auto;
+  margin-top: 10rpx;
+}
+.meg-part-block{
+  display: flex;
+  margin: 0px auto;
+  /* margin-top: 58rpx; */
+}
+.meg-part-block .school{
+  font-size: 30rpx;
+  color: greenyellow;
+}
+.meg-part-block .school-id{
+  font-size: 26rpx;
+  color: white;
+  margin-left: 20rpx;
+  margin-top: 8rpx;
+}
+.select-option{
+  display: flex;
+  flex-direction: column;
+  margin-top: 80rpx;
+}

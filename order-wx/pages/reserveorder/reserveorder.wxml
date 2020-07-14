@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="page-body">
+    <view class="cu-bar bg-gradual-blue">
+      <!-- <view class="action" bindtap="backPage">
+      <text class="cuIcon-back text-gray"></text>返回 
+    </view> -->
+      <view wx:if="{{order.isOver==0}}" class="content text-bold">正在预约</view>
+      <view wx:if="{{order.isOver==1}}" class="content text-bold">已经预约</view>
+    </view>
+    <form>
+      <view class="cu-form-group">
+        <view class="title">座位编号</view>
+        <input disabled="{{true}}" value="{{order.seatId}}"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">座位楼层</view>
+        <input disabled="{{true}}" value="{{seat.floor}}"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">座位类型</view>
+        <input disabled="{{true}}" value="{{seat.type}}"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">预约时间</view>
+        <input disabled="{{true}}" value="{{order.dateTime + ' ' + order.times}}"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">开始签到</view>
+        <view class="margin-tb-sm text-center">
+          <button id="0" class="cu-btn round bg-blue shadow" role="button" aria-disabled="false" bindtap="sign" disabled="{{beginSign}}">{{beginSignMess}}</button>
+        </view>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">结束签到</view>
+        <view class="margin-tb-sm text-center">
+          <button id="1" class="cu-btn round bg-blue shadow" role="button" aria-disabled="false" bindtap="sign" disabled="{{endSign}}">{{endSignMess}}</button>
+        </view>
+      </view>
+      <view wx:if="{{seat.stat == 2? false:true}}" class="cu-form-group margin-top">
+        <view class="title">预约状态</view>
+        <input disabled="{{true}}" value="{{order.isOver==0? '正在预约中':'预约已结束'}}"></input>
+        <button wx:if="{{order.isOver==0?true:false}}" class="cu-btn bg-green shadow" bindtap="deserve">取消预约</button>
+      </view>
+    </form>
+  </view>
+</view>

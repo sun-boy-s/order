@@ -1,0 +1,83 @@
+.page-body {
+  height: 100%;
+  width: 100%;
+}
+
+.box {
+  margin: 20rpx 0;
+}
+
+.box view.cu-bar {
+  margin-top: 20rpx;
+}
+
+.cog-img {
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+}
+
+.select-option {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rpx;
+}
+
+.weather {
+  width: 750rpx;
+}
+
+.weather .list {
+  width: 750rpx;
+  white-space: nowrap;
+}
+
+.weather .list .item {
+  display: inline-block;
+  width: 750rpx;
+  overflow: hidden;
+  /* margin-left: 10px; */
+}
+
+.weather .list .item:last-child {
+  margin-right: 5rpx;
+}
+
+.big {
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.select{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.rect {
+  width: 90%;
+  /* height: 300rpx; */
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  align-items: flex-start;
+  /* background-color: white; */
+  border-radius: 30px;
+}
+
+.rect .item {
+  width: 32%;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  flex-grow: 1;
+  margin: 1rpx;
+}
+
+.rect .item text {
+  text-align: center;
+  font-family: "微软雅黑";
+}

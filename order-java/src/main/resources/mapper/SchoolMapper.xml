@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.SchoolMapper">
+    <resultMap id="schoolResultMap" type="School">
+        <id property="schId" column="sch_id" />
+        <result property="name" column="name" />
+        <result property="introduce" column="introduce" />
+        <result property="createTime" column="create_time" />
+        <result property="inviteCode" column="invite_code" />
+        <result property="schAdmId" column="sch_adm_id" />
+    </resultMap>
+    <sql id="select">
+        select * from ordering_system.school
+    </sql>
+    <select id="findSchoolByCode" parameterType="String" resultType="School" resultMap="schoolResultMap">
+      <include refid="select"></include>
+      where invite_code=#{invite_code}
+    </select>
+    <select id="getSchoolNameByCode" parameterType="String" resultType="String" resultMap="schoolResultMap">
+        select name from school
+        where invite_code=#{invite_code}
+    </select>
+    <select id="findSchoolById" parameterType="String" resultType="School" resultMap="schoolResultMap">
+        <include refid="select"></include>
+        where sch_id=#{sch_id}
+    </select>
+</mapper>

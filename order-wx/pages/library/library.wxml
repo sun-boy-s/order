@@ -1,0 +1,59 @@
+<!--pages/library/library.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class="cu-bar bg-gradual-blue">
+      <!-- <view class="action" bindtap="backPage">
+      <text class="cuIcon-back text-gray"></text>返回 
+    </view> -->
+      <view class="content text-bold">昌航图书馆</view>
+    </view>
+
+    <view class='list-msg2' bindtap='bindShowMsg'>
+      <text>预定日期</text>
+      <text>{{date}}</text>
+      <image style='height:20rpx;width:20rpx;' src='../../utils/images/select.png'></image>
+    </view>
+    <view class="select_box" wx:if="{{select}}">
+      <view wx:for="{{dates}}" wx:key="key">
+        <view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+      </view>
+    </view>
+    <view class='list-msg2' bindtap='bindShowMsgT'>
+      <text>预定时段</text>
+      <text>{{time}}</text>
+      <image style='height:20rpx;width:20rpx;' src='../../utils/images/select.png'></image>
+    </view>
+
+    
+    <view class="select_box" wx:if="{{timeSelect}}">
+      <view wx:for="{{times}}" wx:key="key">
+        <view class="select_one" bindtap="mySelectT" data-name="{{item}}">{{item}}</view>
+      </view>
+    </view>
+
+    <view class="select-option">
+      <view wx:for="{{library.floor_size-0}}" wx:key="key" class="floor">
+        <!-- <view wx:if="{{index<=0}}">
+        <view class="{{['cu-list menu',menuBorder?'sm-border':'','card-menu margin-top']}}">
+          <view class="{{['cu-item','arrow']}}" bindtap="floorCleck" id="{{index-1}}">
+            <view class="content">
+              <image class="png" src="../../utils/images/to-order.png" mode="aspectFit"></image>
+              <text class="text-grey">图书馆{{index-1}}楼</text>
+            </view>
+          </view>
+        </view>
+      </view> -->
+        <!-- <view wx:if="{{index>0}}"> -->
+        <view class="{{['cu-list menu',menuBorder?'sm-border':'','card-menu margin-top']}}">
+          <view class="{{['cu-item','arrow']}}" bindtap="floorCleck" id="{{index+1}}">
+            <view class="content">
+              <image class="png" src="../../utils/images/to-order.png" mode="aspectFit"></image>
+              <text class="text-grey">图书馆{{index+1}}楼</text>
+            </view>
+          </view>
+        </view>
+        <!-- </view> -->
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,104 @@
+<view class="container">
+  <view class="page-body">
+    <view class="box">
+      <form bindsubmit='searchSubmit'>
+        <view class="cu-bar search bg-white">
+          <view class="search-form round">
+            <text class="cuIcon-search"></text>
+            <!-- 搜索方法接口 -->
+            <input adjust-position="{{false}}" type="text" placeholder="输入座位号查询" confirm-type="search" data-event-opts="{{[['focus',[['InputFocus',['$event']]]],['blur',[['InputBlur',['$event']]]]]}}" name="seatId" />
+          </view>
+          <view class="action">
+            <button class="cu-btn bg-green shadow-blur round" formType="submit">搜索</button>
+          </view>
+        </view>
+      </form>
+    </view>
+    <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <image src='{{item}}' class='cog-img'></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="weather">
+      <scroll-view scroll-x="true" class="list" bindscroll="scroll">
+        <view wx:for="{{originalData.weather_data}}" wx:key="date" class="item" wx:for-item="weather">
+          <view wx:if="{{index==0}}">
+            <view class="padding-sm">
+              <view class="padding radius text-center light bg-cyan big">
+                <view class="text-lg">{{originalData.currentCity+" "+weather.date}}</view>
+                <view class="text-lg">{{weather.wind+" "+weather.weather}}</view>
+                <view class="text-lg">{{originalData.index[4].title+":"+originalData.index[4].zs+" pm25:"+originalData.pm25}}</view>
+                <!-- <view class="margin-top-sm text-Abc">cyan</view> -->
+              </view>
+            </view>
+          </view>
+          <view wx:else>
+            <view class="padding-sm">
+              <view class="padding radius text-center shadow-blur bg-white big">
+                <view class="text-lg">{{originalData.currentCity+" "+weather.date}}</view>
+                <view class="text-lg">{{weather.wind+" "+weather.weather}}</view>
+                <!-- <view class="margin-top-sm text-Abc">cyan</view> -->
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 添加页面点击跳转事件 -->
+    <view class="select">
+      <view class="rect">
+        <view class="item" bindtap="selforder" id="library">
+          <image class="png" src="../../utils/images/to-order.png" mode="aspectFit"></image>
+          <text class="text-grey">个人预约</text>
+        </view>
+        <view class="item" bindtap="intelligent" id="intelligent">
+          <image class="png" src="../../utils/images/intelligent.png" mode="aspectFit"></image>
+          <text class="text-grey">智能预约</text>
+        </view>
+        <view class="item" bindtap="identify" id="identify">
+          <image class="png" src="../../utils/images/identify.png" mode="aspectFit"></image>
+          <text class="text-grey">学校认证</text>
+        </view>
+        <view class="item" bindtap="leakage" id="leakage">
+          <image class="png" src="../../utils/images/leakage.png" mode="aspectFit"></image>
+          <text class="text-grey">座位捡漏</text>
+        </view>
+        <view class="item" bindtap="identify" id="identify">
+          <image class="png" src="../../utils/images/book.png" mode="aspectFit"></image>
+          <text class="text-grey">抢座宝典</text>
+        </view>
+        <view class="item">
+          
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class="select-option">
+      <view class="{{['cu-list menu',menuBorder?'sm-border':'','card-menu margin-top']}}">
+        <view class="{{['cu-item','arrow']}}" bindtap="selforder" id="library">
+          <view class="content">
+            <image class="png" src="../../utils/images/to-order.png" mode="aspectFit"></image>
+            <text class="text-grey">个人预约</text>
+          </view>
+        </view>
+        <view class="{{['cu-item','arrow']}}" bindtap="" id="library">
+          <view class="content">
+            <image class="png" src="../../utils/images/to-order.png" mode="aspectFit"></image>
+            <text class="text-grey">智能预约</text>
+          </view>
+        </view>
+        <view class="{{['cu-item','arrow']}}" bindtap="identify" id="identify">
+          <view class="content">
+            <image class="png" src="../../utils/images/identify.png" mode="aspectFit"></image>
+            <text class="text-grey">学校认证</text>
+          </view>
+        </view>
+      </view>
+    </view> -->
+  </view>
+  <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">{{toastMessage}}</toast>
+</view>

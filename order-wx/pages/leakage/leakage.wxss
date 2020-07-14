@@ -1,0 +1,10 @@
+/* pages/leakage/leakage.wxss */
+.body{
+  width: 100%;
+  height: 100%;
+}
+.commit{
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}

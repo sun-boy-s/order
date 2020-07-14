@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StudentMapper">
+    <resultMap id="studentResultMap" type="Student">
+        <id property="openId" column="open_id" />
+        <result property="numId" column="num_id" />
+        <result property="name" column="name" />
+        <result property="realName" column="real_name" />
+        <result property="teleNumber" column="tele_number" />
+        <result property="type" column="type" />
+        <result property="reputation" column="reputation" />
+        <result property="times" column="times" />
+        <result property="schId" column="scho_id" />
+    </resultMap>
+    <sql id="select">
+        select * from ordering_system.student
+    </sql>
+    <select id="findStudent" parameterType="String" resultType="Student" resultMap="studentResultMap">
+        <include refid="select"></include>
+        where open_id=#{open_id}
+    </select>
+    <insert id="addStudent" parameterType="Student">
+      insert into ordering_system.student values (#{student.openId},#{student.numId},
+      #{student.name},#{student.realName},#{student.teleNumber},
+      #{student.type},#{student.reputation},#{student.times},#{student.schId})
+    </insert>
+    <update id="updateStudent" parameterType="Student">
+        update ordering_system.student set num_id=#{student.numId},real_name=#{student.realName},
+        tele_number=#{student.teleNumber}
+        where open_id=#{student.openId}
+    </update>
+    <update id="addPosition">
+        update ordering_system.student
+        set reputation=reputation+1
+        where reputation&lt;80
+    </update>
+    <update id="updataPosition">
+        update ordering_system.student
+        <set>
+            <if test="flag==1">
+                reputation=reputation+#{num}
+            </if>
+            <if test="flag==0">
+                reputation=reputation-#{num}
+            </if>
+        </set>
+        where ordering_system.student.open_id=#{openId}
+    </update>
+    <update id="reduceTimes" parameterType="String">
+        update ordering_system.student
+        set times=times-1
+        where times&gt;0 and open_id=#{openId}
+    </update>
+    <update id="addTimes" parameterType="String">
+        update ordering_system.student
+        set times=times+1
+        where times&lt;4 and open_id=#{openId}
+    </update>
+    <update id="initStudentTimes">
+        update ordering_system.student
+        set times=4
+    </update>
+</mapper>

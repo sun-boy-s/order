@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="page-body">
+    <view class="cu-bar bg-gradual-blue">
+      <!-- <view class="action" bindtap="backPage">
+        <text class="cuIcon-back text-gray"></text>返回 
+      </view> -->
+      <view class="content text-bold">已结束预约</view>
+    </view>
+    <view class="select-option">
+      <view class="{{['cu-list menu',menuBorder?'sm-border':'','card-menu margin-top']}}" wx:for="{{reserved}}" wx:key="*this">
+        <view class="{{['cu-item','arrow']}}" bindtap="onTap" data-index="{{index}}">
+          <view class="content">
+            <text class="text-grey">预约时间 {{item.dateTime + " " + item.times}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

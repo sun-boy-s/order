@@ -1,0 +1,8 @@
+<!--pages/mapsign/mapsign.wxml-->
+<view class="container">
+  <view class="body">
+   <map id="map" longitude="115.828836" latitude="28.651028" polyline="{{polyline}}" circles="{{circles}}" scale="16" show-location="true" style="width: 100%; height: 300px;"></map>
+    <text>确保定位在图书馆虚线内</text>
+    <button class="sign-button" bindtap="sign">点击签到</button>
+  </view>
+</view>

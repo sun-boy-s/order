@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ListMapper">
+    <resultMap id="listResultMap" type="OrderList">
+        <id property="listId" column="sch_id" />
+        <result property="dateTime" column="dateTime" />
+        <result property="times" column="times" />
+        <result property="isOver" column="is_over" />
+        <result property="beginSign" column="beginSign" />
+        <result property="endSign" column="endSign" />
+        <result property="openId" column="open_id" />
+        <result property="seatId" column="seat_id" />
+        <result property="schId" column="sch_id" />
+    </resultMap>
+    <sql id="select">
+        select * from ordering_system.list
+    </sql>
+    <select id="findListByListId" resultType="OrderList" resultMap="listResultMap">
+        <include refid="select"></include>
+        where ordering_system.list.list_id=#{listId}
+    </select>
+    <select id="findList" resultType="OrderList" resultMap="listResultMap">
+        <include refid="select"></include>
+        where dateTime=#{dateTime} and times=#{times} and seat_id=#{seat_id} and is_over=0
+    </select>
+    <select id="findListForDeserve" resultType="OrderList" resultMap="listResultMap">
+        <include refid="select"></include>
+        where dateTime=#{dateTime} and times=#{times} and seat_id=#{seat_id} and open_id=#{open_id} and is_over=0
+    </select>
+    <insert id="addList" parameterType="OrderList" useGeneratedKeys="true" keyProperty="list_id">
+        insert into ordering_system.list(dateTime, times, is_over, beginSign, endSign, open_id, seat_id, schid)
+        values (#{orderList.dateTime},#{orderList.times},#{orderList.isOver},#{orderList.beginSign},#{orderList.endSign},
+        #{orderList.openId},#{orderList.seatId},#{orderList.schId})
+    </insert>
+    <select id="getSeatId" parameterType="String" resultType="String">
+        select seat_id
+        from ordering_system.list
+        where schid=#{schId} and dateTime=#{date} and times=#{time} and is_over=0
+    </select>
+    <select id="findListByOpenId" resultMap="listResultMap">
+        select * from list where open_id = #{open_id} and is_over=0
+    </select>
+    <select id="findReservedById" resultMap="listResultMap">
+        select * from list where open_id = #{open_id} and is_over=1
+    </select>
+    <select id="findListString" resultType="String">
+        select times
+        from  ordering_system.list
+        where seat_id=#{seatId} and dateTime=#{date} and is_over=0
+    </select>
+    <select id="findListOrdering" parameterType="String" resultMap="listResultMap">
+        select * from ordering_system.list
+        where <![CDATA[dateTime = str_to_date( #{date},'%Y-%m-%d')]]>
+    </select>
+    <update id="updateListOrdering" parameterType="String" >
+      update ordering_system.list
+      set is_over = 1
+      where is_over=0
+        and <![CDATA[dateTime <= str_to_date( #{date},'%Y-%m-%d')]]>
+        and <![CDATA[substring(times,7) <= str_to_date(#{times},'%H:%i:%s')]]>
+    </update>
+    <update id="deserve" >
+        update ordering_system.list
+        set is_over = 1
+        where dateTime=#{dateTime} and times=#{times} and seat_id=#{seat_id} and open_id=#{open_id} and is_over=0
+    </update>
+    <update id="updateListBeginSign">
+        update ordering_system.list
+        set beginSign = 1
+        where ordering_system.list.list_id=#{listId}
+    </update>
+    <update id="updateListEndSign">
+        update ordering_system.list
+        set endSign = 1
+        where ordering_system.list.list_id=#{listId}
+    </update>
+</mapper>
